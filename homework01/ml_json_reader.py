@@ -1,4 +1,5 @@
 
+import argparse
 
 import json
 
@@ -34,8 +35,18 @@ def min_mass(a_list_of_dicts, a_key_string):
             name_min=a_list_of_dicts[i]['name']
     return(name_min, min_mass)
 
-with open('Meteorite_Landings.json', 'r') as f:
+parser = argparse.ArgumentParser(description='Input name of file for input:')
+parser.add_argument('filename', action='store', type=str, help='Please input the name of the json file')
+
+args = parser.parse_args()
+
+filename=args.filename
+
+
+with open(filename, 'r') as f:
      ml_data = json.load(f)
+
+print('Summary Statistics:\n') 
 
 print('average mass (g): ' , compute_average_mass(ml_data['meteorite_landings'], 'mass (g)'))
 print('dictionary containing the classes of meteorite and their counts: ', count_class(ml_data['meteorite_landings'], 'recclass'))
