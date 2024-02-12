@@ -23,12 +23,15 @@ The CSV file should have columns for latitude, longitude, mass, and other releva
 docker pull dylmcintyre/ml_data_reader:1.0
 
 To run the container on your machine: 
+
 docker run --rm -it -v $PWD/["DATA_FILE_NAME"].csv:/data/["DATA_FILE_NAME"].csv dylmcintyre/ml_data_reader:1.0 /bin/bash
 
 To run the program with your data: 
+
 python3 code/ml_data_reader.py data/["DATA_FILE_NAME"].csv
 
 To test the code: 
+
 pytest code
 
 
