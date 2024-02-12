@@ -1,0 +1,36 @@
+# **Meteorite Landing Data Analysis**
+
+This Python script analyzes meteorite landing data stored in a CSV file. It provides summary statistics about the meteorites, calculates distances between meteorites and specified locations, and utilizes a great-circle algorithm to compute geographical distances.
+
+
+## **Files Included:**
+
+
+**ml_data_reader.py** is used to read in the csv files and contains functions to calculate and print summary data. 
+
+**gcl_alg.py** is used to calculated distances between points on a globe.
+
+**test_ml_data_reader.py** and **test_gcl_alg.py** are used to test these two scripts for functionality.
+
+
+##  **Input Data:**
+
+The CSV file should have columns for latitude, longitude, mass, and other relevant information.
+
+## Usage
+
+**Run the Script:**
+
+      python3 ml_data_reader.py data.csv
+
+Replace data.csv with the name of your CSV file.
+
+**Output:**
+
+
+The output will include summary statistics of the data including the max and min mass of meteorites in grams, the distance between austin and the largest meteorite, and the distance between two sample meteorites.
+
+## **Data:**
+Relevent data can be found here: https://data.nasa.gov/Space-Science/Meteorite-Landings/gh4g-9sfh/about_data
+This data includes meteorite landing information and can be copied into the current directory and passed into the code as described above
+
