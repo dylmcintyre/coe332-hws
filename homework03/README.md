@@ -18,6 +18,13 @@ This Python script analyzes meteorite landing data stored in a CSV file. It prov
 The CSV file should have columns for latitude, longitude, mass, and other relevant information.
 
 ## Usage
+**Pull the container from docker**
+
+docker pull dylmcintyre/ml_data_reader:1.0
+docker run --rm -it -v $PWD/["DATA_FILE_NAME"].csv:/data/["DATA_FILE_NAME"].csv dylmcintyre/ml_data_reader:1.0 /bin/bash
+
+
+
 
 **Run the Script:**
 
