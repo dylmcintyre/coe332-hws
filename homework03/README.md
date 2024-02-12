@@ -16,6 +16,11 @@ This Python script analyzes meteorite landing data stored in a CSV file. It prov
 
 **Diagram.png** is a visual diagram displaying the relationship between the files in the program
 
+**Program Flow:**
+
+![Diagram.png](https://github.com/dylmcintyre/coe332-hws/blob/main/homework03/Diagram.png)
+This diagram demonstrates the relationship between different files and components of the program. The user runs the docker container and mounts their input data through the command line. The ml_data_reader and gcl_alg files read in and process the data before returning output to the command line while the two test files run error checks on these files using pytest.
+
 ##  **Input Data:**
 
 The CSV file should have columns for latitude, longitude, mass, and other relevant information.
