@@ -44,10 +44,9 @@ python3 code/ml_data_reader.py data/["DATA_FILE_NAME"].csv
 
 Where DATA_FILE_NAME is the name of the csv file containing relavent meteorite landing data
 
-**Alternatively to run the scrip without creating a docker container:**
+**Alternatively to run the script without creating a docker container (Not Recomended):**
 
       python3 ml_data_reader.py ["DATA_FILE_NAME"].csv
-
 
 **Output:**
 
