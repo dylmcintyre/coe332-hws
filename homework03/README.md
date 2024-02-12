@@ -1,6 +1,6 @@
 # **Meteorite Landing Data Analysis**
 
-This Python script analyzes meteorite landing data stored in a CSV file. It provides summary statistics about the meteorites, calculates distances between meteorites and specified locations, and utilizes a great-circle algorithm to compute geographical distances.
+This Python script analyzes meteorite landing data stored in a CSV file. It provides summary statistics about the meteorites, calculates distances between meteorites and specified locations, and utilizes a great-circle algorithm to compute geographical distances. For portability reasons, the script can optionally be run in a docker container.
 
 
 ## **Files Included:**
@@ -12,35 +12,37 @@ This Python script analyzes meteorite landing data stored in a CSV file. It prov
 
 **test_ml_data_reader.py** and **test_gcl_alg.py** are used to test these two scripts for functionality.
 
+**Dockerfile** contains the information needed to build the container that the code is to be run in
+
+**Diagram.png** is a visual diagram displaying the relationship between the files in the program
 
 ##  **Input Data:**
 
 The CSV file should have columns for latitude, longitude, mass, and other relevant information.
 
 ## Usage
-**Pull the container from docker and run the code inside**
+**The following four lines of code can be used to do the following:**
+1) pull the container from docker
+2) run the container on your machine
+3) test the code for errors
+4) execute the code using user inputed data
+```ruby
 
 docker pull dylmcintyre/ml_data_reader:1.0
 
-To run the container on your machine: 
-
-docker run --rm -it -v $PWD/["DATA_FILE_NAME"].csv:/data/["DATA_FILE_NAME"].csv dylmcintyre/ml_data_reader:1.0 /bin/bash
-
-To run the program with your data: 
-
-python3 code/ml_data_reader.py data/["DATA_FILE_NAME"].csv
-
-To test the code: 
+docker run --rm -it -v $PWD/["DATA_FILE_NAME"].csv:/data/["DATA_FILE_NAME"].csv dylmcintyre/ml_data_reader:1.0 /bin/bash 
 
 pytest code
 
+python3 code/ml_data_reader.py data/["DATA_FILE_NAME"].csv
+```
 
+Where DATA_FILE_NAME is the name of the csv file containing relavent meteorite landing data
 
-**Run the Script:**
+**Alternatively to run the scrip without creating a docker container:**
 
-      python3 ml_data_reader.py data.csv
+      python3 ml_data_reader.py ["DATA_FILE_NAME"].csv
 
-Replace data.csv with the name of your CSV file.
 
 **Output:**
 
