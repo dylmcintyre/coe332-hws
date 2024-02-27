@@ -1,18 +1,13 @@
-FROM ubuntu:20.04
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y python3 && \
-    apt-get install -y python3-pip
+FROM python:3.9
+RUN mkdir /app
+WORKDIR /app
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r /app/requirements.txt
 
 RUN pip3 install pytest==8.0.0
-
 Run pip3 install requests
 
-Run pip3 install xmltodict
+COPY iss_tracker.py /app/app.py
 
-COPY iss_tracker.py /code/iss_tracker.py
-COPY test_iss_tracker.py /code/test_iss_tracker.py
-
-RUN chmod +rx /code/iss_tracker.py
-
-ENV PATH="/code:$PATH"
+ENTRYPOINT ["python"]
+CMD ["app.py"]
