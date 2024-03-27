@@ -24,7 +24,6 @@ allows the user to post request the data into a redis database, delete, and make
 The data is from HUGO and comes in json format
 
 ## Startup:
-Start by downloading the files to your device.
 **The following lines of code can be used to pull, start, test, and close the application:**
 
 ```ruby
