@@ -87,12 +87,19 @@ def get_data()->list:
 
 
 
+        # 5: Reading the CSV from the zip file and converting it to a dataframe.
+        file_name = "races.csv"
+        df = pd.read_csv(zf.open(file_name))
 
+        # 6: convert the dataframe to a JSON object.
+        races_data=json.loads(json.dumps(list(df.T.to_dict().values())))
 
         
         driver_standings_data=json.dumps(driver_standings_data)
         drivers_data=json.dumps(drivers_data)
         results_data=json.dumps(results_data)
+        races_data=json.dumps(races_data)
+
 
         drivers_data=drivers_data.replace('\\', '')
 
@@ -100,7 +107,7 @@ def get_data()->list:
         rdb.set('driver_standings_data', driver_standings_data)
         rdb.set('drivers_data', drivers_data)
         rdb.set('results_data', results_data)
-
+        rdb.set('races_data', races_data)
         return("Data has been posted to redis.\n")
     
     if request.method=='GET':
